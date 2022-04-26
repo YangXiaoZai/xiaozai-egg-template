@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="public/common.css">
+  <title>Document</title>
+</head>
+<body>
+  <% include header.html %>
+  <%= time %>
+  <div>
+    <button onclick="add()">添加cookie</button>
+    <button onclick="del()">删除cookie</button>
+    <button onclick="update()">修改cookie</button>
+    <button onclick="get()">查看cookie</button>
+  </div>
+
+  <h3>你好，小在</h3>
+  <h4>欢迎来到<%= school %>的<%= major%>研究院学习</h4>
+  您本月的课程有
+  <ul>
+    <% for(let i = 0;i<subject.length;i++){ %>
+      <li><%= subject[i] %></li>
+    <% } %>
+  </ul>
+</body>
+<script>
+  function add(){
+    fetch('/add',{
+      method:'post',
+      headers:{
+        'Content-type':'application/json'
+      }
+    })
+  }
+
+//  async function add(){
+//    let url = 'https://api.github.com/users/ruanyf';
+//    try{
+//      let res = await fetch(url)
+//     let data = await res.json()
+//     console.log(res)
+//     console.log(data)
+//     return data
+//    }catch(error){
+//     console.log('请求失败',error)
+//    }
+
+//   }
+
+  function del(){
+    fetch('/del',{
+      method:'post',
+      headers:{
+        'Content-type':'application/json'
+      }
+    })
+  }
+  function update(){
+    fetch('/update',{
+      method:'post',
+      headers:{
+        'Content-type':'application/json'
+      }
+    })
+  }
+  function get(){
+    fetch('/get',{
+      method:'post',
+      headers:{
+        'Content-type':'application/json'
+      }
+    })
+  }
+</script>
+</html>
